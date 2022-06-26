@@ -15,7 +15,6 @@ app.use(cors(corsOptions)) // Use this after the variable declaration
 app.set('port', process.env.PORT || 9000)
 const dbOptions = {
     host: 'data-avimo.cgriqmyweq5c.us-east-2.rds.amazonaws.com',
-    // port: 3306,
     user: 'testing',
     password: 'Pruebas%ALI%2020',
     database: 'testing_ali_fullstack'
@@ -30,11 +29,6 @@ app.get('/', (req, res)=>{
     res.send('Welcome to my API')
 })
 app.use('/api', routes)
-
-// server running -----------------------------------
-app.listen(app.get('port'), ()=>{
-    console.log('server running on port', app.get('port'))
-})
 
 var mysql_pool  = mysql.createPool(dbOptions);
 
@@ -87,3 +81,10 @@ app.get('/api/create-table',function(req,res) {
 		})
 	});
 });
+
+
+
+// server running -----------------------------------
+app.listen(app.get('port'), ()=>{
+    console.log('server running on port', app.get('port'))
+})
